@@ -274,3 +274,56 @@ export function theAgent(x: number, y: number, initialPoint: point, endPoint: po
 ```
 *Explicacion:*
 Para llevar a cabo este ejercicio, se crea un tipo de datos, como se puede ver en la primera línea. A la función se le pasan cuatro parámetros, primero se le pasa el valor del ancho y del largo del tablero. Luego se le pasa la posición del punto de inicio y por último se le pasa la posición del punto del destino. Una vez dentro de la función se crea la variable que albergará la ruta retornaremos como solución. Y luego un bucle *while* que tiene como condición para que se ejecute que el punto en el que estemos no debe ser el punto destino, si es así, saldremos del bucle. Dentro de este se calcula en base a los índices a que dirección debemos movernos, una vez cumplamos la condición para movernos, se añade al vector *ruta* la orientación y actualizamos nuestra posición. Una vez terminemos el bucle se devuelve el vector *ruta* que contendrá las indicaciones. Como comentario he decidido implementar en este orden las condiciones para ir en sentido antihorario: Norte -> Este -> Sur -> Oeste.
+
+### Pruebas Unitarias
+Esta compiplación de ejercicios se ha llevado bajo **pruebas unitarias**. Dejo constancia de las pruebas hechas, tanto aquí como en el siguiente enlace que irá a la [carpeta tests](https://github.com/ULL-ESIT-INF-DSI-2021/ull-esit-inf-dsi-20-21-prct04-arrays-tuples-enums-alu0101119663/tree/master/tests)
+
+```
+[~/Practicas/p4(master)]$npm run test
+
+> p4@1.0.0 test
+> mocha
+
+
+
+  Ejercicio 1 - Decodificar resistencias
+    ✓ decodeResistor("Marron-Negro") return value 10
+    ✓ decodeResistor("Marron-Negro-Violeta") return value 10
+
+  Ejercicio 2 - Palabras encadenadas en un array
+    ✓ meshArray([“allow”, “lowering”, “ringmaster”, “terror”]) return lowringter
+    ✓ meshArray([“kingdom”, “dominator”, “notorious”, “usual”, “allegory”]) return "Error al encadenar"
+
+  Ejercicio 3 - Calcular la media y concatenar cadenas
+    ✓ meanAndConcatenate(["u", 6, "d", 1, "i", "w", 6, "s", "t", 4, "a", 6, "g", 1, 2, "w", 8, "o", 2, 0]) return [3.6, "udiwstagwo"]
+    ✓ meanAndConcatenate(["d", "s", "i", 2, 0, 2, 1]) return [1.25, "dsi"]
+
+  Ejercicio 4 - Mover los ceros al final
+    ✓ ([1,0,1,2,0,1,3]) return [1,1,2,1,3,0,0]
+    ✓ ([0,0,0,10,1,0,0]) return [10,1,0,0,0,0,0]
+
+  Ejercicio 5 - Factoría de multiplicaciones
+    ✓ multiplyAll([2, 6, 8])(3) returns value [6, 18, 24]
+    ✓ multiplyAll([8, 8, 8, 8])(8) returns value [64, 64, 64, 64]
+
+  Ejercicio 6 - Puntos bi-dimensionales
+    ✓ pointSuma([5, 4], [7, 4]) return [12, 8]
+    ✓ pointResta([5, 4], [7, 4]) return [-2, 0]
+    ✓ pointProducto([5, 4], 8) return [40, 32]
+    ✓ pointDistanciaEuclidea([5, 4], [7, 4]) return 2
+
+  Ejercicio 7 - Puntos n-dimensionales
+    ✓ pointNSuma([5, 4, 8], [7, 4, 8]) return [12, 8, 16]
+    ✓ pointNResta([5, 4, 8], [7, 4, 8]) return [-2, 0, 0]
+    ✓ pointNProducto([5, 4, 8], 8) return [40, 32, 64]
+    ✓ pointNDistanciaEuclidea([5, 4, 8], [7, 4, 8]) return 2
+
+  Ejercicio 8 - El agente
+    ✓ agent(15, 15, [1, 3], [3, 5]) returns value [North, East, North, East]
+
+
+  19 passing (35ms)
+```
+
+## Conclusión
+En esta práctica he seguido aprendiendo a buen ritmo, a pesar de haber tenido complicaciones en la sesión presencial. También me he sentido cómodo con las pruebas a pesar de que a veces tengo que dedicarle tiempo para buscar la que sea más adecuada y por último, comentar que me parece muy interesante la herramienta para la documentación **Typedoc**. Para finalizar, comentar que esta práctica ha ayudado a coger experiencia en este nuevo lenguaje y a seguir evolucionando como programador.
