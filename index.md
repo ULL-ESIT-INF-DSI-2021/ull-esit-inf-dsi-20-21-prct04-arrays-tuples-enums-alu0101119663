@@ -242,5 +242,35 @@ Para llevar a cabo este ejercicio, que es muy similar al anterior, he creado otr
 ### Ejercicio 8 - El agente
 [Código Resuelto](https://github.com/ULL-ESIT-INF-DSI-2021/ull-esit-inf-dsi-20-21-prct04-arrays-tuples-enums-alu0101119663/blob/master/src/ejercicio-8.ts)
 ```
+type point = [number, number];
+
+export function theAgent(x: number, y: number, initialPoint: point, endPoint: point) {
+  let ruta: string[] = [];
+
+  while (!((initialPoint[0] == endPoint[0]) && (initialPoint[1] == endPoint[1]))) {
+    if (initialPoint[1] < endPoint[1]) {
+      ruta.push("North");
+      initialPoint[1]++;
+    }
+
+    if (initialPoint[0] < endPoint[0]) {
+      ruta.push("East");
+      initialPoint[0]++;
+    }
+
+    if (initialPoint[1] > endPoint[1]) {
+      ruta.push("South");
+      initialPoint[1]--;
+    }
+
+    if (initialPoint[0] > endPoint[0]) {
+      ruta.push("Oeast");
+      initialPoint[0]--;
+    }
+  }
+  return ruta;
+}
+
 ```
 *Explicacion:*
+Para llevar a cabo este ejercicio, se crea un tipo de datos, como se puede ver en la primera línea. A la función se le pasan cuatro parámetros, primero se le pasa el valor del ancho y del largo del tablero. Luego se le pasa la posición del punto de inicio y por último se le pasa la posición del punto del destino. Una vez dentro de la función se crea la variable que albergará la ruta retornaremos como solución. Y luego un bucle *while* que tiene como condición para que se ejecute que el punto en el que estemos no debe ser el punto destino, si es así, saldremos del bucle. Dentro de este se calcula en base a los índices a que dirección debemos movernos, una vez cumplamos la condición para movernos, se añade al vector *ruta* la orientación y actualizamos nuestra posición. Una vez terminemos el bucle se devuelve el vector *ruta* que contendrá las indicaciones. Como comentario he decidido implementar en este orden las condiciones para ir en sentido antihorario: Norte -> Este -> Sur -> Oeste.
