@@ -110,23 +110,135 @@ Para la realización de este ejercicio a la función se le pasa una entrada, que
 ### Ejercicio 4 - Mover los ceros al final
 [Código Resuelto](https://github.com/ULL-ESIT-INF-DSI-2021/ull-esit-inf-dsi-20-21-prct04-arrays-tuples-enums-alu0101119663/blob/master/src/ejercicio-4.ts)
 ```
+export function moveZeros(entrada: number[]): number[] {
+  let arrayZero: number[] = [];
+  let arrayNoZero: number[] = [];
+
+  entrada.forEach((dato) => {
+    if (typeof dato === "number") {
+      if (dato == 0) {
+        arrayZero.push(dato);
+      }else {
+        arrayNoZero.push(dato);
+      }  
+    } 
+  });
+
+  const solMoveZero = arrayNoZero.concat(arrayZero);
+  return solMoveZero;
+}
 ```
 *Explicacion:*
+Para llevar a cabo este ejercicio, a la función se le pasa un array de *numbers*. Dentro de la función creo dos *arrays* uno para los ceros, y otro para los números que no son cero. Recorro el array que nos dan como entrada y en función si el dato obtenido es cero o no, haremos un *push* a una de las otras arrays comentadas anteriormente. Una vez finalizado el bucle, se concatena el *array* que no contiene ceros con el que los tiene y se devuelve en un sólo *array*
 ### Ejercicio 5 - Factoría de multiplicaciones
 [Código Resuelto](https://github.com/ULL-ESIT-INF-DSI-2021/ull-esit-inf-dsi-20-21-prct04-arrays-tuples-enums-alu0101119663/blob/master/src/ejercicio-5.ts)
 ```
+export function multiplyAll(vector: number[]) {
+  return (mul: number) => {
+    let solution: number[] = [];
+
+    vector.forEach((data) => {
+      solution.push(data * mul);
+    });
+    return solution;
+  }
+}
 ```
 *Explicacion:*
+Para llevar a cabo este ejercicio, a la función se le pasa por parámetro el vector de números que queremos multiplicar y hacemos un return del multiplicador, durante el mismo se hará una función anónima que recibirá el valor del multiplicador. Dentro de un bucle hacemos que se realice la operación de multiplicación posición a posición y vaya haciendo *push* del resultado obtenido a un vector creado, el cual contendrá la solución y será que el se retornará de la función una vez se termine de realizar el bucle.
+
 ### Ejercicio 6 - Puntos bi-dimensionales
 [Código Resuelto](https://github.com/ULL-ESIT-INF-DSI-2021/ull-esit-inf-dsi-20-21-prct04-arrays-tuples-enums-alu0101119663/blob/master/src/ejercicio-6.ts)
 ```
+type point = [number, number];
+
+export function pointSuma(p1: point, p2: point): point {
+  let res: point = [0, 0];
+
+  res[0] = p1[0] + p2[0];
+  res[1] = p1[1] + p2[1];
+
+  return res;
+}
+
+export function pointResta(p1: point, p2: point): point {
+  let res: point = [0, 0];
+
+  res[0] = p1[0] - p2[0];
+  res[1] = p1[1] - p2[1];
+
+  return res;
+}
+
+export function pointProducto(p1: point, mul: number): point {
+  let res: point = [0, 0];
+
+  res[0] = p1[0] * mul;
+  res[1] = p1[1] * mul;
+
+  return res;
+}
+
+export function pointDistanciaEuclidea(p1: point, p2: point): number {
+  let res: number = Math.sqrt((Math.pow((p1[0] - p2[0]), 2)) + (Math.pow((p1[1] - p2[1]), 2)))
+
+  return res; 
+}
 ```
 *Explicacion:*
+Para llevar a cabo este ejercicio, he creado un tipo de dato con *type*, que posee dos *number*. Posteriormente he creado las funciones de suma y resta, comentaré ambas juntas debido a que son muy similares. Para realizar ambas, he creado una variable resultado del mismo tipo y he hecho la suma y la resta índice a índice. Para el producto, he hecho algo similar también. Primero se crea la variable de solución y luego se multiplica el valor de cada índice del vector por el multiplicador que se le ha pasado como parámetro a la función. Por último para el último ejercicio, solo he aplicado la fórmula ayudándome de las funciones que nos proporciona Math y he retornado el valor obtenido.
 ### Ejercicio 7 - Puntos n-dimensionales
 [Código Resuelto](https://github.com/ULL-ESIT-INF-DSI-2021/ull-esit-inf-dsi-20-21-prct04-arrays-tuples-enums-alu0101119663/blob/master/src/ejercicio-7.ts)
 ```
+type pointN = [number, number, number, ...number[]];
+
+export function pointNSuma(p1: pointN, p2: pointN): pointN {
+  if(p1.length == p2.length) {
+    for(let i: number = 0; i < p1.length; i++) {
+      p1[i] += p2[i];
+    }
+    return p1; 
+  }else{
+    throw "Imposible realizar la operación, los puntos no pertenecen a la misma dimension";
+  }
+}
+
+export function pointNResta(p1: pointN, p2: pointN): pointN {
+  if(p1.length == p2.length) {
+    for(let i: number = 0; i < p1.length; i++) {
+      p1[i] -= p2[i];
+    }
+    return p1; 
+  }else{
+    throw "Imposible realizar la operación, los puntos no pertenecen a la misma dimension";
+  }
+}
+
+export function pointNProducto(p1: pointN, mul: number): pointN {
+  for(let i: number = 0; i < p1.length; i++) {
+    p1[i] *= mul;
+  }
+  return p1; 
+}
+
+export function pointNDistanciaEuclidea(p1: pointN, p2: pointN): number {
+  if(p1.length == p2.length) {
+    let result: number = 0;
+    let part1: number = 0;
+    let part2: number = 0;
+
+    for(let i: number = 0; i < p1.length; i++) {
+      part1 = Math.pow((p1[i] - p2[i]), 2);
+      part2 += part1;
+    }
+
+    result = Math.sqrt(part2);
+    return result;
+  }
+}
 ```
 *Explicacion:*
+Para llevar a cabo este ejercicio, que es muy similar al anterior, he creado otro tipo de dato con *type*. Esta vez se nos pedía que fuera de 3 o más dimesiones, y con la primera lineas que podemos ver en el código lo conseguimos. Luego empiezan las funciones. Para las dos primeras se comprueba que ambos puntos pasados por parámetros son de la misma dimensión, en caso de que no se cumpla se lanza un *throw* con un mensaje de error, ya que no se podrá llevar a cabo la operación. Para hacer la operación se hace un bucle para recorrer todas las dimesiones e ir haciendo la operación correspondiente, ya sea suma o resta. El resultado se guardará en el primer operando y se retornará el valor obtenido. Para realizar el producto, se hace otro bucle para recorrer todas las dimesiones del punto y se van multiplicando los valores por el valor que se le ha pasado por parámetro. Por último para la distancia Euclidea, se comprueba que ambos puntos son de la misma dimensión y después se crean una variables, primero la variabble que gardará el resultado, esta será la que se retornará. Y luego hay dos variables auxiliares, la primera calculará la elevación al cuadrado de la resta de la distancia entre el punto 2 y el punto 1, posteriormente se irá sumando en la otra variable auxiliar. Una vez haya terminado el bucle ue calcula esa operación para todas las dimesiones que sea necesario, se realiza la raíz cuadrada y se retorna el resultado.
 ### Ejercicio 8 - El agente
 [Código Resuelto](https://github.com/ULL-ESIT-INF-DSI-2021/ull-esit-inf-dsi-20-21-prct04-arrays-tuples-enums-alu0101119663/blob/master/src/ejercicio-8.ts)
 ```
