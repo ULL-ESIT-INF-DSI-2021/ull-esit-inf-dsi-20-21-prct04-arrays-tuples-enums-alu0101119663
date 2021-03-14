@@ -326,4 +326,12 @@ Esta compiplación de ejercicios se ha llevado bajo **pruebas unitarias**. Dejo 
 ```
 
 ## Conclusión
-En esta práctica he seguido aprendiendo a buen ritmo, a pesar de haber tenido complicaciones en la sesión presencial. También me he sentido cómodo con las pruebas a pesar de que a veces tengo que dedicarle tiempo para buscar la que sea más adecuada y por último, comentar que me parece muy interesante la herramienta para la documentación **Typedoc**. Para finalizar, comentar que esta práctica ha ayudado a coger experiencia en este nuevo lenguaje y a seguir evolucionando como programador.
+En esta práctica he seguido aprendiendo a buen ritmo, a pesar de haber tenido complicaciones en la sesión presencial. También me he sentido cómodo con las pruebas a pesar de que a veces tengo que dedicarle tiempo para buscar la que sea más adecuada y por último, comentar que me parece muy interesante la herramienta para la documentación **Typedoc**. Para finalizar, comentar que esta práctica ha ayudado a coger experiencia en este nuevo lenguaje y a seguir evolucionando como 
+programador.
+
+## Bibliografía
+
+Typedoc - https://drive.google.com/file/d/19LLLCuWg7u0TjjKz9q8ZhOXgbrKtPUme/view?usp=sharing
+Mocha/Chai - https://drive.google.com/file/d/1-z1oNOZP70WBDyhaaUijjHvFtqd6eAmJ/view?usp=sharing
+Enunciado de la práctica - https://ull-esit-inf-dsi-2021.github.io/prct04-arrays-tuples-enums/
+Distancia Euclidea - https://es.wikipedia.org/wiki/Distancia_euclidiana
